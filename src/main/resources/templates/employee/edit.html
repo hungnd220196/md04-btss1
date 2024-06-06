@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-primary mb-4">Add New Employee</h1>
+    <form th:action="@{/employee/edit}" method="post" th:object="${employee}">
+        <div class="mb-3">
+            <label for="id" class="form-label">Employee ID</label>
+            <input type="text" class="form-control" id="id" name="name" th:field="*{employeeId}"
+                   placeholder="Enter employee name">
+<!--            <div th:if="${#fields.hasErrors('employeeId')}" class="text-danger" th:errors="*{employeeId}"></div>-->
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Employee Name</label>
+            <input type="text" class="form-control" id="name" name="name" th:field="*{fullName}"
+                   placeholder="Enter employee name">
+<!--            <div th:if="${#fields.hasErrors('fullName')}" class="text-danger" th:errors="*{fullName}"></div>-->
+        </div>
+        <div class="mb-3">
+            <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+            <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" th:field="*{birthDay}"
+                   placeholder="Enter number of employees">
+<!--            <div th:if="${#fields.hasErrors('birthDay')}" class="text-danger" th:errors="*{birthDay}"></div>-->
+        </div>
+        <div class="mb-3">
+            <label for="department" class="form-label">Department Name</label>
+            <select class="form-select" id="department" name="department" th:field="*{department}">
+                <option th:each="dep : ${department}" th:value="${dep}" th:text="${dep.departmentName}">Select department
+                </option>
+            </select>
+<!--            <div th:if="${#fields.hasErrors('department')}" class="text-danger" th:errors="*{department}"></div>-->
+        </div>
+        <div class="mb-3">
+            <label for="manageId" class="form-label">Position</label>
+            <input type="text" class="form-control" id="manageId" name="manageId" th:field="*{position}"
+                   placeholder="Enter employee name" required>
+<!--            <div th:if="${#fields.hasErrors('position')}" class="text-danger" th:errors="*{position}"></div>-->
+        </div>
+        <div class="mb-3">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="number" class="form-control" id="salary" name="manageId" th:field="*{salary}"
+                   placeholder="Enter employee name" required>
+<!--            <div th:if="${#fields.hasErrors('salary')}" class="text-danger" th:errors="*{salary}"></div>-->
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+        </div>
+    </form>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
